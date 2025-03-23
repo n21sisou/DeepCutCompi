@@ -41,5 +41,5 @@ python segment_slic.py
 ## 🖼️ Example Output
 
 Here we can see an output of the code:
-![Example Segmentation](results/K=3_slic((50, 400))/mnist3_segmentation.png)
+![Example Segmentation](results/K=3_slic%28%2850%2C%20400%29%29/mnist3_segmentation.png)
 
