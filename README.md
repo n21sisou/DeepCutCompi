@@ -37,4 +37,8 @@ cd DeepCutCompi
 
 python segment_slic.py
 
+## 🖼️ Example Output
+
+Here we can see an output of the code:
+![Example Segmentation](results/K=3_slic((50, 400))/mnist3_segmentation.png)
 
