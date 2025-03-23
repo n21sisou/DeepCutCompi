@@ -1,6 +1,7 @@
 # DeepCutCompi
 
 Sisouphanthong Nolan, Charles Anna
+
 This repo showcases our experiments and modifications based on the DeepCut algorithm.
 
 > Based on the paper:  
