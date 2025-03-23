@@ -11,3 +11,19 @@ This repo showcases our experiments and modifications based on the DeepCut algor
 
 We took the original codebase and ran additional experiments. 
 https://sampl-weizmann.github.io/DeepCut/
+
+---
+
+## 🧪 Our Approach
+
+We explored whether the **Graph Neural Network (GNN)** in DeepCut, trained with the **Normalized Cut (N-cut)** loss, could still learn meaningful image segmentations **without relying on transformer-based features**.
+
+To do this:
+
+- We removed the Vision Transformer (ViT) feature extractor used in the original DeepCut.
+- Instead, we applied the **SLIC superpixel algorithm** to obtain image patches.
+- These superpixels were used to construct a graph directly from the image.
+- The GNN was then trained on this graph using the same N-cut loss as in the original method.
+
+Our goal was to assess the standalone learning capacity of the GNN for unsupervised segmentation when given a purely spatial, low-level representation.
+
