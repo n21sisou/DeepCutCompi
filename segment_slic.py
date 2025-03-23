@@ -35,7 +35,7 @@ def GNN_seg( epochs, K, compactness,n_segments, in_dir, out_dir, save, res,devic
     from gnn_pool import GNNpool 
    
 
-    model = GNNpool(feats_dim,128, 64, K, device).to(device)
+    model = GNNpool(feats_dim,256, 128, K, device).to(device)
     torch.save(model.state_dict(), 'model.pt')
     model.train()
 
@@ -158,12 +158,7 @@ def GNN_seg( epochs, K, compactness,n_segments, in_dir, out_dir, save, res,devic
         # Post-processing
         mask0 = pixel_labels.astype(float)
 
-        # Apply bilateral solver if needed
-        # if bs:
-        #     mask0 = bilateral_solver_output(image, mask0)[1]
-
-        # Save the results
-        # util.save_or_show([image, mask0, util.apply_seg_map(image, mask0, 0.7)], filename, out_dir, save)
+        
         fused_image = util.apply_seg_map(image, mask0, 0.7)
         
         # Save the images using matplotlib plots
@@ -225,12 +220,12 @@ if __name__ == '__main__':
     epochs=1000
     # Number of steps per image
     # Number of clusters
-    K = 3
+    K = 5
    
     res = (256, 256)
     #parameters for SLIC
     compactness=50
-    n_segments=400
+    n_segments=1000
     # Directory of image to segment
     in_dir = './images/single/'
     out_dir = f'./results/K={K}_slic({compactness,n_segments})'
