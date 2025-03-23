@@ -26,4 +26,14 @@ To do this:
 - The GNN was then trained on this graph using the same N-cut loss as in the original method.
 
 Our goal was to assess the standalone learning capacity of the GNN for unsupervised segmentation when given a purely spatial, low-level representation.
+--- 
+## ▶️ Run the Code
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/DeepCutCompi.git
+cd DeepCutCompi
+
+python segment_slic.py
 
