@@ -12,7 +12,7 @@ from skimage import graph
 import networkx as nx
 import scipy.sparse as sp
 import matplotlib.pyplot as plt 
-def GNN_seg( epochs, K, compactness,n_segments, in_dir, out_dir, save, res,device):
+def GNN_seg( epochs, K, compactness,n_segments, in_dir, out_dir, save, res,device,conv_hidden=1024, mlp_hidden=512):
     """
     Segment entire dataset; Get bounding box (k==2 only) or segmentation maps
     bounding boxes will be in the following format: class, confidence, left, top , right, bottom
@@ -35,7 +35,8 @@ def GNN_seg( epochs, K, compactness,n_segments, in_dir, out_dir, save, res,devic
     from gnn_pool import GNNpool 
    
 
-    model = GNNpool(feats_dim,256, 128, K, device).to(device)
+    model = GNNpool(feats_dim,conv_hidden, mlp_hidden, K, device).to(device)
+    # print(model)
     torch.save(model.state_dict(), 'model.pt')
     model.train()
 
@@ -224,11 +225,11 @@ if __name__ == '__main__':
    
     res = (256, 256)
     #parameters for SLIC
-    compactness=50
-    n_segments=1000
+    compactness=40
+    n_segments=400
     # Directory of image to segment
     in_dir = './images/single/'
-    out_dir = f'./results/K={K}_slic({compactness,n_segments})'
+    out_dir = f'./results/K={K}_slic({compactness,n_segments})_more_params'
     save = True
     
     
