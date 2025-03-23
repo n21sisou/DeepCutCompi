@@ -36,6 +36,7 @@ git clone https://github.com/n21sisou/DeepCutCompi.git
 cd DeepCutCompi
 
 python segment_slic.py
+```
 
 ## 🖼️ Example Output
 
