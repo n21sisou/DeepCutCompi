@@ -29,11 +29,12 @@ Our goal was to assess the standalone learning capacity of the GNN for unsupervi
 --- 
 ## ▶️ Run the Code
 
-1. Clone the repository:
+Clone the repository:
 
 ```bash
 git clone https://github.com/your-username/DeepCutCompi.git
 cd DeepCutCompi
 
 python segment_slic.py
+
 
