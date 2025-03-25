@@ -25,7 +25,7 @@ To do this:
 - These superpixels were used to construct a graph directly from the image.
 - The GNN was then trained on this graph using the same N-cut loss as in the original method.
 
-Our goal was to assess the standalone learning capacity of the GNN for unsupervised segmentation when given a purely spatial, low-level representation.
+Our goal was to assess the standalone learning capacity of the GNN for unsupervised segmentation when given a purely spatial and color based, low-level representation.
 --- 
 ## ▶️ Run the Code
 
