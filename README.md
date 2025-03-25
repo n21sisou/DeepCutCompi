@@ -37,6 +37,8 @@ cd DeepCutCompi
 
 python segment_slic.py
 ```
+exemple notebook in collab 
+[![Open in Colab](https://colab.research.google.com/drive/1gDkU0gCYKW3elZShclzCFyuK68FigISm#scrollTo=FckI1ji0zaFT)
 
 ## 🖼️ Example Output
 
