@@ -95,7 +95,6 @@ def GNN_seg( epochs, K, compactness,n_segments, in_dir, out_dir, save, res,devic
             
             # Calculate mean color
             mean_color = np.mean(image[mask], axis=0)
-            std_color = np.std(image[mask], axis=0)
 
             # Calculate center of mass (position)
             y_indices, x_indices = np.where(mask)
@@ -152,12 +151,27 @@ def GNN_seg( epochs, K, compactness,n_segments, in_dir, out_dir, save, res,devic
         ##########################################################################################
         # Post-processing Connected Component/bilateral solver
         ##########################################################################################
-        pixel_labels = np.zeros_like(labels)
-        for i, label in enumerate(S):
-            pixel_labels[labels == i+1] = label.item()
+        # pixel_labels = np.zeros_like(labels)
+        # for i, label in enumerate(S):
+        #     pixel_labels[labels == i+1] = label.item()
 
-        # Post-processing
-        mask0 = pixel_labels.astype(float)
+        # # Post-processing
+        # mask0 = pixel_labels.astype(float)
+
+        if mode == 0:  # SLIC mode
+            pixel_labels = np.zeros_like(labels)
+            for i, label in enumerate(S):
+                pixel_labels[labels == i+1] = label.item()
+            
+            # Final mask
+            mask0 = pixel_labels.astype(float)
+            
+        else:  # Pixel mode
+            # Reshape to 2D grid
+            seg_map = S.numpy().reshape(128, small_w)
+            
+            # Resize back to original size
+            mask0 = cv2.resize(seg_map.astype(float), (w, h), interpolation=cv2.INTER_NEAREST)
 
         
         fused_image = util.apply_seg_map(image, mask0, 0.7)
