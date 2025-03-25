@@ -37,7 +37,7 @@ cd DeepCutCompi
 
 python segment_slic.py
 ```
-### example google colab notebook
+### Example google colab notebook
 [<img alt="Open In Colab" height="50" src="https://colab.research.google.com/assets/colab-badge.svg" width="300"/>](https://colab.research.google.com/drive/1gDkU0gCYKW3elZShclzCFyuK68FigISm#scrollTo=FckI1ji0zaFT)
 
 
